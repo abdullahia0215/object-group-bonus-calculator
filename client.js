@@ -65,12 +65,14 @@ function calculateIndividualEmployeeBonus(employee) {
   }
   if (employee.annualSalary > 65000) {
     bonus.bonusPercentage -= 0.01;
-  } 
+  }
   if (bonus.bonusPercentage < 0) {
     bonus.bonusPercentage = 0;
   } else if (bonus.bonusPercentage > 0.13) {
     bonus.bonusPercentage = 0.13;
   }
+  bonus.totalBonus = bonus.bonusPercentage * Number(employee.annualSalary);
+  bonus.totalCompensation = bonus.totalBonus + Number(employee.annualSalary);
   return bonus;
 }
 
